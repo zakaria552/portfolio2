@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+    height: 100vh;
+    width: 100vw;
+}
+
+@layer utilities {
+    .nav-btn-hover {
+        @apply absolute bottom-0 left-0 w-0 h-0.5 bg-slate-300 group-hover:w-full group-hover:transition-all;
+    }
+    .nav-float {
+        @apply bg-[#000000b3] border-[0.01px] border-slate-400;
+    }
+    .hamburger-menu {
+        @apply absolute right-0 top-0 w-[60%] h-screen p-4 pt-20 pb-10 bg-[#000000b3] font-potta rounded-md flex-col justify-between;
+    }
+}
