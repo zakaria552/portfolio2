@@ -79,7 +79,7 @@ const Navbar = () => {
           
                 </div>
             </div>
-            <div className='relative flex justify-between w-screen p-4'>
+            <div className='relative flex md:hidden justify-between w-screen p-4'>
                 <div className=''>
                     <h1 ref={logoRef} className='font-jaro text-4xl text-white'>ZF</h1>
                 </div>
