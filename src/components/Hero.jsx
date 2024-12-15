@@ -61,7 +61,7 @@ const Hero = () => {
         </div>}
         <div className='hero-section relative h-full w-full z-10'>
             <video onCanPlay={handleCanPlay}
-            ref={bgRef} autoPlay={true} muted loop src='/mp4/8721924-uhd_4096_2160_25fps.mov'
+            ref={bgRef} autoPlay={true} muted loop src='/mp4/8721924-uhd_4096_2160_25fps.mp4'
             className='bg-video absolute w-screen h-screen object-cover'></video>
             <div className='absolute z-20 px-3 text-black md:px-10 mt-[40%] md:mt-[10%]'>
                 <h1 className='font-potta text-xl text-slate-300'>Hi, welcome to my portfolio site</h1>
