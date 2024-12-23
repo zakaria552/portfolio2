@@ -10,7 +10,9 @@ export default {
         jaro: ['Jaro', "sans-serif"],
         yuji: ["Yuji+Mai"],
         Raleway: ['Raleway', 'sans-serif'],
-        potta: ["Potta One", "sans-serif"]
+        potta: ["Potta One", "sans-serif"],
+        dmSans: ["DM Sans", "serif"],
+        jura: ["Jura", "serif"]
       },
     },
   },
