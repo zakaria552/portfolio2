@@ -18,16 +18,28 @@ const Navbar = () => {
     const logoRef = useRef(null)
     const navRef = useRef()
     const {y: currentScrollY} = useWindowScroll()
-    console.log(showMenu)
+    let tween = useRef()
     useGSAP(() => {
         gsap.fromTo(logoRef.current, {rotate: 0}, { rotate: 360, duration: 2, repeat: -1})
     })
     useGSAP(() => {
-        gsap.to(navRef.current, {
-            translateY: isHidden ? -100: 0,
-            opacity: isHidden ? 0.3: 1,
-            duration: isHidden ?  0.7: 0.3,
-        })
+        if(!mounted) {
+            tween.current = gsap.to(navRef.current, {
+                translateY: -100,
+                opacity: 0.3,
+                duration: 0.7,
+                yoyo: true,
+                paused: true,
+                ease: "expo.inOut"
+            })
+            return
+        }
+        if (isHidden) {
+            tween.current.play()
+        } else {
+            // tween.current.duration = 2
+            tween.current.reverse()
+        }
     }, [isHidden])
     useGSAP(() => {
         if(!mounted) return
@@ -47,11 +59,11 @@ const Navbar = () => {
         
     }, [showMenu])
     useEffect(() => {
-        if(currentScrollY === 0) {
+        if(!mounted) return
+        if(currentScrollY < 10) {
             setIsHidden(false)
             setShowNavBorder(false)
-            console.log("setting to false")
-        } else if(currentScrollY > prevScrollY ) {
+        } else if(currentScrollY > prevScrollY) {
             setIsHidden(true)
             setShowNavBorder(false)
         } else if (currentScrollY < prevScrollY) {
@@ -59,7 +71,9 @@ const Navbar = () => {
             setShowNavBorder(true)
         }
         setPrevScrollY(currentScrollY)
-    }, [currentScrollY, prevScrollY])
+        setTimeout(() => {
+        }, 100)
+    }, [currentScrollY])
     useEffect(() => {
         setMounted(true)
     }, [])

@@ -5,23 +5,23 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger)
 
-const Hero = () => {
-    const [loading, setLoading] = useState(true)
+const Hero = ({loading, setLoading}) => {
+    const [ showHeroSection, setShowHeroSection ] = useState(false)
     const bgRef = useRef()
     let loaderTweens;
     const handleCanPlay = () => {
-        setTimeout(() => {
-            loaderTweens.forEach((tween) => {
-                tween.revert()
-            })
-            gsap.to(".loader", {
-                zoom: 110,
-                opacity: 0.2,
-                duration: 1,
-                ease: 'expo.in'
-            })
-            setTimeout(() => setLoading(false), 1000)
-        }, 1000)
+        loaderTweens.forEach((tween) => {
+            tween.revert()
+        })
+        console.log("zooming in")
+        gsap.to(".loader", {
+            scale: 110,
+            opacity: 0.1,
+            duration: 1,
+            ease: 'expo.in'
+        })
+        setTimeout(() => setShowHeroSection(true, 800))
+        setTimeout(() => setLoading(false), 1000)
     }
     useGSAP(() => {
         gsap.from(".hero-section", {
@@ -35,7 +35,7 @@ const Hero = () => {
                 trigger: bgRef.current,
                 start: "bottom bottom",
                 end: "bottom center",
-                markers: true,
+                markers: false,
                 scrub: true
             }
         })
@@ -59,11 +59,11 @@ const Hero = () => {
                 {[1,2,3].map((el, i) => <div key={i} className={`z-10 bg-white size-4 rounded-full dot dot-${i}`}></div>)}
             </div>
         </div>}
-        <div className='hero-section relative h-full w-full z-10'>
-            <video onCanPlay={handleCanPlay}
+        <div className={`hero-section relative h-full w-full z-10`}>
+            <video playsInline onCanPlay={() => setTimeout(handleCanPlay, 1500)}
             ref={bgRef} autoPlay={true} muted loop src='/mp4/8721924-uhd_4096_2160_25fps.mp4'
             className='bg-video absolute w-screen h-screen object-cover'></video>
-            <div className='absolute z-20 px-3 text-black md:px-10 mt-[40%] md:mt-[10%]'>
+            <div className={`${!showHeroSection ? "hidden": ""} absolute z-20 px-3 text-black md:px-10 mt-[40%] md:mt-[10%]`}>
                 <h1 className='font-potta text-xl text-slate-300'>Hi, welcome to my portfolio site</h1>
                 <h1 className='font-jaro text-5xl md:text-6xl text-white'>
                     Building the Future, <br></br>
@@ -77,7 +77,7 @@ const Hero = () => {
 
         </div>
 
-        <div className='absolute z-0 px-3 md:px-10 mt-[40%] md:mt-[10%]'>
+        <div className={`${!showHeroSection ? "hidden": ""} absolute z-0 px-3 md:px-10 mt-[40%] md:mt-[10%]`}>
             <h1 className='font-potta text-xl'>Hi, welcome to my portfolio site</h1>
             <h1 className='font-jaro text-5xl md:text-6xl'>
                 Building the Future, <br></br>

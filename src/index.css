@@ -17,4 +17,10 @@ main {
     .hamburger-menu {
         @apply absolute right-0 top-0 w-[60%] h-screen p-4 pt-20 pb-10 bg-[#000000b3] font-potta rounded-md flex-col justify-between;
     }
+    .animated-word {
+        transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
+        transform-origin: 200% 50% -170px !important;
+        opacity: 1;
+        z-index: 100;
+    }
 }
