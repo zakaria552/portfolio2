@@ -61,7 +61,15 @@ const About = () => {
             opacity: 1,
             ease: "expo.in"
         }, ">")
-       
+        gsap.to(".skills-section, .about-section", {
+            backgroundColor: "#000000",
+            scrollTrigger: {
+                trigger: ".animated-text",
+                start: "top bottom",
+                end: "top 80%",
+                scrub: true
+            }
+        })
     }, [])
     return (
         <div className='about-section min-h-full w-full top-0 bg-slate-50 flex flex-col relative'>

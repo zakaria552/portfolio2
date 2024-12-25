@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
-
+import  Skills from "./components/Skills"
 const App = () => {
   const [loading, setLoading] = useState(true)
   return <>
@@ -15,6 +15,7 @@ const App = () => {
       <Hero loading={loading} setLoading={setLoading}/>
       {!loading && <>
         <About/>
+        <Skills/>
         <Projects/>
         <Footer/>
       </>

@@ -3,20 +3,22 @@ import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 
-const AnimatedText = ({containerClass, text}) => {
+const AnimatedText = ({containerClass, text, start, end}) => {
     const textWrapperRef = useRef()
     useGSAP(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: textWrapperRef.current,
-                start: "top bottom",
-                end: "top top",
-                markers: true,
+                start: start,
+                end: end,
+                markers: false,
                 scrub: true
             }
         })
-        tl.to(".animated-word", {
-            opacity: 1, 
+        tl.to(".animated-word, .animated-text", {
+            opacity: 1,
+            translateX: 0,
+            translateY: 0,
             transform: "translate3d(0, 0, 0) rotateX(0) rotateY(0)",
             duration: 0.5,
             ease: "power1.inOut",
