@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react';
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 
-const AnimatedText = ({containerClass, text, start, end}) => {
+const AnimatedText = ({containerClass, text, start, end, icons}) => {
     const textWrapperRef = useRef()
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -30,7 +30,18 @@ const AnimatedText = ({containerClass, text, start, end}) => {
             {text.split("</b>").map((line, i) => {
                 return <div key={"line-"+i} className='flex gap-6 md:px-8'>
                     {line.split(" ").map((word, j) => {
-                        return <span key={"word-"+j} className='animated-word'>{word}</span>
+                        const isIcon = word.includes("{icon-")
+                        let Icon;
+                        let iconProps;
+                        if (isIcon) {
+                            const iconIndex = word.split("-")[1].split("}")[0]
+                            Icon = icons[iconIndex].icon
+                            iconProps = icons[iconIndex].props ? icons[iconIndex].props: {}
+                            console.log(Icon)
+                        }
+                        console.log(iconProps)
+                        {/* return */}
+                        return <span key={"word-"+j} className='animated-word'>{!isIcon ? word: <Icon {...iconProps}/> }</span>
                     })}
                 </div>
             })}
