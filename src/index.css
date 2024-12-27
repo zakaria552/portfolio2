@@ -28,4 +28,7 @@ main {
         transform-style: preserve-3d;
         border-radius: 32px;
     }
+    .highlight-tech {
+        @apply text-red-500;
+    }
 }
