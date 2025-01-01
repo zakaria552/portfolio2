@@ -3,6 +3,7 @@ import AnimatedText from "./AnimatedText"
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import {GiStoneCrafting} from "./icons"
+import Technologies from './Technologies';
 
 const Skills = () => {
     const skills = [
@@ -121,7 +122,7 @@ const Skills = () => {
                     trigger: `.skill-${label}-trigger`,
                     start: "top bottom",
                     end: "top 85%",
-                    markers: true,
+                    // markers: true,
                     scrub: true
                 }
             })
@@ -169,7 +170,7 @@ const Skills = () => {
                         return <div key={"skill-"+index} className={`skill-${label} flex mb-2 gap-4 ${!displayDefault && "text-[#666666]"}`}>
                             <div className={`flex flex-col items-center`}>
                                 <div className='w-5 text-center'>{label}</div>
-                                <div className={`scrollbar-${label} w-[3px] h-[80px] ${!displayDefault && "hidden"} bg-slate-500 rounded-md`}>
+                                <div className={`scrollbar-${label} w-[3px] min-h-[80px] h-full ${!displayDefault && "hidden"} bg-slate-500 rounded-md`}>
                                     <div className='w-full bg-white h-0 rounded-md'></div>
                                 </div>
                             </div>
@@ -179,11 +180,16 @@ const Skills = () => {
                             </div>
                         </div>
                     })}
-
+                    <div className='mt-20 md:hidden'>
+                        <Technologies/>
+                    </div>
                 </div>
 
                 <div className='relative hidden w-3/5 h-[60vh] md:flex justify-center items-center '>
-                    {skills.map(({label, techs}, i) => {
+                    <div className='absolute top-[50%]'>
+                        <Technologies/>
+                    </div>
+                    {/* {skills.map(({label, techs}, i) => {
                         if(!techs.length) return
                         return <div key={"tech"+label+i} className={`absolute top-[50%] h-full tech-${label} hidden flex-col`}>
                             <div className='flex gap-6 pb-2 pr-2'>
@@ -195,13 +201,13 @@ const Skills = () => {
                             <div className='progress-bar h-[1px] p-[1px] w-0 rounded-sm bg-white'></div>
                             <p className={`tech-${label}-label bg-black pb-40 z-20 opacity-0`}>Technologies</p>
                         </div>
-                    })}
+                    })} */}
                 </div>
             </div>
             <div className='scroll-triggers'>
                 {skills.map(({label}, i) => {
                     return <>
-                        <div key={label+i} className={`w-full h-5 mt-[50vh] skill-scroll-trigger skill-${label}-trigger ${i === skills.length-1 ? "mb-[0]": "mt-[50vh]"}`}></div>
+                        <div key={label+i} className={`w-full h-5 ${i === 0 ? 'mt-[20vh] md:mt-[50vh]' : 'mt-[50vh]'} skill-scroll-trigger skill-${label}-trigger ${i === skills.length-1 ? "mb-[50vh]": "mt-[50vh]"}`}></div>
                         {i === skills.length - 1 && <div className='sticky '></div>}
                     </>
                 })}

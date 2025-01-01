@@ -31,4 +31,20 @@ main {
     .highlight-tech {
         @apply text-red-500;
     }
+    .box-1 {
+        border-width: 3px 4px 3px 5px;
+        border-radius:95% 4% 92% 5%/4% 95% 6% 95%;
+        transform: rotate(2deg);
+    }
+    .box-2 {
+        border-width: 3px 3px 5px 5px;
+        border-radius:4% 95% 6% 95%/95% 4% 92% 5%;
+        transform: rotate(-2deg);
+      }
+      
+    .box-3 {
+        border-width: 5px 3px 3px 5px;
+        border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
+        transform: rotate(2deg);
+    }
 }
