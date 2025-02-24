@@ -74,7 +74,7 @@ const About = () => {
     return (
         <div className='about-section min-h-full w-full top-0 bg-slate-50 flex flex-col relative'>
             <div className='flex flex-col md:flex-row justify-center gap-4 p-4 m-auto'>
-                <div className='card-1 flex flex-col items-center p-4 bg-[#696a9f] translate-x-[-1000px] rounded-md w-full h-[400px] md:w-1/3 md:min-h-[600px]'>
+                <div className='card card-1 flex flex-col items-center p-4 bg-[#9488f4] translate-x-[-1000px] rounded-md w-full h-[400px] md:w-1/3 md:min-h-[600px]'>
                     <div className='relative overflow-hidden w-[250px] h-[250px] rounded-full opacity-1 bg-[#ca784c8f] md:w-[300px] md:h-[300px] md:mt-16'>
                         <img className="absolute h-80 top-[-20px] " src="images/zf.svg"/>
                     </div>
@@ -90,12 +90,12 @@ const About = () => {
                     </div>
                 </div>
                 <div className='flex flex-col gap-4 w-full md:w-1/3 md:min-h-[600px]'>
-                    <div className='card card-2 bg-[#696a9f] opacity-0 translate-x-[1500px] rounded-md h-fit md:h-1/2 p-4'>
+                    <div className='card card-2 bg-[#9488f4] opacity-0 translate-x-[1500px] rounded-md h-fit md:h-1/2 p-4'>
                         <h1 className='text-xl font-dmSans mb-4'>About me</h1>
                         <p className='text-md mb-2 font-jura'>Full-stack software developer passionate about learning and building. From web applications to 3D graphics, containerization, and managing my own VPS, I love diving into all aspects of tech—backend, frontend, and deployment.</p>
                         <p className='text-md font-jura'>When I’m not coding, I enjoy exploring mathematics, cooking, gaming, and traveling to spark new ideas and inspiration.</p>
                     </div>
-                    <div className='card-3 bg-[#696a9f] opacity-0 rounded-md h-[300px] md:h-1/2 p-4'>
+                    <div className='card card-3 bg-[#9488f4] opacity-0 rounded-md h-[300px] md:h-1/2 p-4'>
                         <h1 className='font-dmSans text-xl mb-4'>Professional Journey</h1>
                         <div className='careers flex flex-col gap-0 text-sm'>
                             <div className='career-1 opacity-0 flex items-center gap-4 md:gap-10'>

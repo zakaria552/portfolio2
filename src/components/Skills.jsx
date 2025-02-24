@@ -73,7 +73,7 @@ const Skills = () => {
                     trigger: `.skill-${label}-trigger`,
                     start: "top bottom",
                     end: "top center",
-                    // markers: true,
+                    markers: true,
                     scrub: true
                 }
             })
@@ -161,7 +161,7 @@ const Skills = () => {
         })
     })
     return (
-        <div className='skills-section w-full h-fit p-4 pt-8 pb-[50vh] md:p-20 text-white'>
+        <div className='skills-section w-full bg-slate-50 h-fit p-4 pt-8 pb-[50vh] md:p-20 text-white'>
             <div className='flex sticky top-[5%] md:top[10%] skills opacity-0 mt-5 font-jura w-full'>
                 <div className='w-full md:w-2/5'>
                     <AnimatedText start={"top 80%"} end={"top 60%"} containerClass={"skills-animated-title mb-6 text-5xl md:text-8xl font-jaro translate-y-[30px] translate-x-[-30px] opacity-0"} text={"Techincal </b> {icon-0} skills"} icons={[{icon: GiStoneCrafting, props: {className: "text-red-500"}}]}/>
@@ -207,7 +207,7 @@ const Skills = () => {
             <div className='scroll-triggers'>
                 {skills.map(({label}, i) => {
                     return <>
-                        <div key={label+i} className={`w-full h-5 ${i === 0 ? 'mt-[20vh] md:mt-[50vh]' : 'mt-[50vh]'} skill-scroll-trigger skill-${label}-trigger ${i === skills.length-1 ? "mb-[50vh]": "mt-[50vh]"}`}></div>
+                        <div key={label+i} className={`w-full h-5 ${i === 0 ? 'mt-[0vh] md:mt-[50vh]' : 'mt-[50vh]'} skill-scroll-trigger skill-${label}-trigger ${i === skills.length-1 ? "mb-[50vh]": "mt-[50vh]"}`}></div>
                         {i === skills.length - 1 && <div className='sticky '></div>}
                     </>
                 })}
